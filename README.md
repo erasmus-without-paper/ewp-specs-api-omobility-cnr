@@ -15,6 +15,15 @@ mobilities kept on their partner institutions' servers are changed.
 CNR stands for Change Notification Receiver. For a detailed introduction on how
 CNR APIs work, please read [this page][cnr-intro].
 
+If HEI provides any API from the following group:
+* Outgoing Mobilities
+* Outgoing Mobilities CNR
+* Outgoing Mobilities Stats
+* Incoming Mobilities
+* Incoming Mobilities CNR
+
+it MUST provide all APIs from this group.
+
 
 Request method
 --------------
@@ -29,16 +38,10 @@ Request parameters
 Parameters MUST be provided in the `application/x-www-form-urlencoded` format.
 
 
-### `sending_hei_id` (required)
-
-Identifier of the sending HEI - the master of the Outgoing Mobility objects
-which just have been changed.
-
-
 ### `omobility_id` (repeatable, required)
 
 A list of identifiers of Outgoing Mobility objects (no more than
-`<max-omobility-ids>` items). These are the Mobility objects which have been
+`<max-omobility-ids>` items). These are the Mobility objects that have been
 recently updated (or created) on the caller's side.
 
 This parameter is *repeatable*, so the request MAY contain multiple occurrences
@@ -89,13 +92,10 @@ Safety measures
 
 It is NOT guaranteed that all notifications will be delivered to you promptly.
 Some notifications may also **not reach you at all**, e.g. due to
-implementation errors on the sending institution's server, or the fact that no
-Notification Sender daemon has been implemented there (see
-`<sends-notifications>` element in [Outgoing Mobilities API][omobilities-api]'s
-`manifest-entry.xsd`).
+implementation errors on the sending institution's server.
 
-Therefore, you SHOULD periodically verify if your copies are up-to-date (or,
-simply, choose to *not store* these copies). Proper caching techniques and/or
+Therefore, you SHOULD periodically verify if your copies are up-to-date (or
+choose to *not store* these copies). Proper caching techniques and/or
 periodical use of `index` endpoint of [Outgoing Mobilities API][omobilities-api]
 can help you with that.
 

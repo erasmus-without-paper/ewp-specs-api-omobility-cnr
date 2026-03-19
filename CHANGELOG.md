@@ -5,10 +5,25 @@ This document describes all the changes made to the *Outgoing Mobility CNR API*
 document, starting from its first beta draft version.
 
 
+2.0.0
+-----
+
+* Switched to `stable-v2` namespaces.
+* Removed the `sending_hei_id` request parameter.
+* Added a requirement for HEIs providing any Outgoing/Incoming Mobility API to
+  provide all APIs from this group (including CNR).
+* Removed references to `Incoming Mobilities Stats`.
+* Changed "must" to "MUST" in several places.
+* Removed unused XML namespace declarations.
+* Updated descriptions and fixed minor wording issues.
+
+
 1.0.0
 -----
 
 * First stable release.
+* Removed a fragment in `README.md` that was outdated after Learning
+  Agreements were separated from Outgoing Mobilities.
 
 
 0.4.1
